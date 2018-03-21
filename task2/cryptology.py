@@ -11,6 +11,14 @@ def isaccepted(x):
     return x in ascii_table
 
 
+def isspace(x):
+    return x == format(ord(' '), '08b')
+
+
+def islowercase(x):
+    return x in [format(ord(x), '08b') for x in string.ascii_lowercase]
+
+
 def xor(a, b):
     return '1' if (a == '1' and b == '0') or (a == '0' and b == '1') else '0'
 
@@ -22,7 +30,7 @@ def xor_bytes(b1, b2):
 def get_data(filename):
     with open(filename, 'r') as f:
         size = int(f.readline())
-        return [f.readline().replace(' ', '').rstrip('\n') for _ in range(size)]
+        return [f.readline().rstrip('\n') for _ in range(size)]
 
 
 def find_key(ciphertexts, wanted_index=-1):
@@ -39,6 +47,8 @@ def find_key(ciphertexts, wanted_index=-1):
                 xored = xor_bytes(c, char)
                 if isaccepted(xored):
                     key_guesses[c] += 1
+                    if isspace(xored):
+                        key_guesses[c] += 1
         sorted_guesses = sorted(key_guesses, key=lambda x: key_guesses[x], reverse=True)
         for guess in sorted_guesses:
             char = ciphertexts[wanted_index][i:i + 8]
