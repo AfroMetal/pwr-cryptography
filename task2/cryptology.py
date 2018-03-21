@@ -20,7 +20,7 @@ def islowercase(x):
 
 
 def xor(a, b):
-    return '1' if (a == '1' and b == '0') or (a == '0' and b == '1') else '0'
+    return '0' if (a == b) else '1'
 
 
 def xor_bytes(b1, b2):
