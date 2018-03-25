@@ -1,3 +1,4 @@
+import itertools
 import string
 import time
 
@@ -82,8 +83,12 @@ if __name__ == "__main__":
     start = time.process_time()
     data = get_data('ciphertexts.txt')
 
-    key = find_key(data, wanted_index=-1)
-    print(decrypt(data[-1], key))
+    wanted_index = -1
+
+    key = find_key(data, wanted_index=wanted_index)
+    ciphertext = data[wanted_index]
+    message = decrypt(ciphertext, key)
+    print(message)
 
     end = time.process_time()
     print(f"----------------- {end - start} seconds")
