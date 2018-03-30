@@ -1,7 +1,7 @@
 AES file decoder/encoder
-================
-Radosław Kowalski
------------------
+========================
+
+## Description
 
 File encrypting/decrypting with cryptographic keys loaded from Java KeyStore in
 JCEKS keystore `.jck` file. Program supports AES standard with OFB, CBC, CTR and
