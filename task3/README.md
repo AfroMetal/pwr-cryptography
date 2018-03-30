@@ -21,8 +21,6 @@ uniformly at random, will be encrypted and saved in `challenge.aes`.
 ```
 usage: filecoder.py [-h] [-s KEYSTORE_PATH] [-k KEY_ID] [-c]
                     {encode,decode} {cbc,ctr,ofb,gcm} files [files ...]
-```
-
 
 positional arguments:
   {encode,decode}    mode of operation
@@ -36,3 +34,4 @@ optional arguments:
   -c                 challenge mode: on input m0, m1 your program picks
                      independently, uniformly at random a bit `b` and returns
                      a ciphertext cb of a message mb
+```
