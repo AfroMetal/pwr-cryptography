@@ -41,10 +41,10 @@ class TestEncryptionModes(unittest.TestCase):
 
     def run_test(self, mode, encryption_key, decryption_key):
         self.check_plaintext()
-        filecoder.encode(mode, encryption_key, [self.input_file])
+        filecoder.encode_files(mode, encryption_key, [self.input_file])
         self.check_ciphertext()
         self.remove_input()
-        filecoder.decode(mode, decryption_key, [self.output_file])
+        filecoder.decode_files(mode, decryption_key, [self.output_file])
         self.check_plaintext()
 
     def test_cbc(self):
